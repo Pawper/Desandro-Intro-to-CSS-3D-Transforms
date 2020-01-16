@@ -1,18 +1,25 @@
+:root {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html,
+body {
   width: 100%;
+  height: 100%;
 }
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: sans-serif;
 }
 
 .scene {
@@ -37,7 +44,7 @@ body {
   backface-visibility: hidden;
   color: white;
   font-family: sans-serif;
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -57,3 +64,5 @@ body {
 .card.is-flipped {
   transform: translateX(-100%) rotateY(-180deg);
 }
+
+/* https://3dtransforms.desandro.com/card-flip */

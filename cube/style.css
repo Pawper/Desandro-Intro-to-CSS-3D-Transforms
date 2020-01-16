@@ -1,0 +1,80 @@
+:root {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+  margin: 80px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px); /* This is so that the front face is at the Z origin, meaning no text distortion */
+  transition: transform 1s;
+}
+
+.cube__face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(100px);
+  /* R */             background: rgba(255,   0,   0, 0.7); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(100px);
+  /* G */             background: rgba(  0, 255,   0, 0.7); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(100px);
+  /* Yellow = R+G */  background: rgba(255, 255,   0, 0.7); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(100px);
+  /* Teal = G+B */    background: rgba(  0, 255, 255, 0.7); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(100px);
+  /* B */             background: rgba(  0,   0, 255, 0.7); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(100px);
+  /* Magenta = R+B */ background: rgba(255,   0, 255, 0.7); }
+
+
+.cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+.cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+.cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+.cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+.cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+.cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+
+label {
+  margin-right: 1rem;
+  font-size: 1.6rem;
+}
+
+/* https://3dtransforms.desandro.com/cube */
